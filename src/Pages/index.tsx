@@ -3,12 +3,15 @@ import Landing from "../layout/landing"
 import * as si from "react-icons/si";
 import * as fa from "react-icons/fa";
 import * as ri from "react-icons/ri";
+import * as md from "react-icons/md";
 import { ISkills } from "../types";
 import { useState } from "react";
-import Images from "../images"
+import Images from "../assets"
 import '../index.css'
 import Iconbtn from "../components/iconbtn";
 import About from "../components/about";
+import Input from "../components/input";
+import Button from "../components/button";
 
 const Home = () =>{
 
@@ -115,7 +118,7 @@ const Home = () =>{
                 <Navbar/>
                {/* hero section */}
                {/* flex sm:flex-row justify-center items-center flex-col min-h-[100%] */}
-               <div className="flex justify-evenly items-center min-h-[100vh] herobg">
+               <div className="flex justify-evenly items-center min-h-[100vh] herobg ">
                     
                     <div className="text-left flex flex-col gap-4 px-20 min-w-[50%] ">
                         <div className="flex flex-col gap-y-2 text-3xl">
@@ -151,16 +154,18 @@ const Home = () =>{
    
                 {/* skills */}
                 
-                <div className=" px-20 py-10">
-                    <div className="flex justify-center flex-col gap-5 border">
-                        <div className="flex flex-col justify-center border">
+                <div className=" px-20 ">
+                    <div className="flex justify-center flex-col gap-5 ">
+                        <div className="flex flex-col justify-center gap-2">
                             <div className="text-center">
-                            <h1 className="text-gray-600 text-3xl">
-                                <strong>MY SKILLS</strong>
-                            </h1>
+                                <h1 className="text-gray-600 text-3xl">
+                                    <strong>MY SKILLS</strong>
+                                </h1>
                             </div>
-                            <div className="w-48 h-1 bg-line justify-center"/>
+                            <div className="w-48 h-1 bg-line place-self-center"/>
+                            <div className="w-56 h-1 bg-line place-self-center"/>
                         </div>
+                        
                         <div className="grid grid-cols-5 gap-5 justify-center">
                             {
                                 skills.map((skill:ISkills)=>(
@@ -172,7 +177,7 @@ const Home = () =>{
                             }
                         </div>
                     </div>
-
+                </div>
                     {/* <h1 className="text-gray-600 text-3xl text-center"><strong>ABOUT ME</strong></h1>
                     <div className="w-full ">
                         <div className="grid grid-cols-5 gap-5 justify-center">
@@ -188,16 +193,24 @@ const Home = () =>{
                             }
                         </div>
                     </div> */}
-                </div>
+                
 
                 {/* Projects */}
-                <div>
-                    <div>
-                        <div >
+                <div className="p-20">
+                    <div className="flex justify-center flex-col gap-5">
+                        <div className="flex flex-col justify-center gap-2">
+                            <div className="text-center">
                             <h1 className="text-gray-600 text-3xl">
                                 <strong>PROJECT'S</strong>
                             </h1>
-                            
+                            </div>
+                            <div className="w-48 h-1 bg-line place-self-center"/>
+                            <div className="w-56 h-1 bg-line place-self-center"/>
+                        </div>
+                        <div className="grid grid-cols-3 gap-5">
+                            <img src={Images.project} alt="" sizes="200px" />
+                            <img src={Images.project} alt="" />
+                            <img src={Images.project} alt="" />
                         </div>
                     </div>
                 </div>
@@ -215,6 +228,33 @@ const Home = () =>{
                 </div> */}
 
                 {/*  */}
+
+                {/* get in touch */}
+                <div className="px-20">
+                    <div className="flex items-center gap-11 justify-center">
+                        <div>
+                            <div className="text-3xl flex items-center gap-3">
+                                <h1>
+                                    <strong>Love to hear from you</strong>
+                                </h1>
+                                <md.MdWavingHand className="text-6xl "/>
+                                
+                            </div>
+                            <h1 className="text-8xl"><strong>GET IN <br />TOUCH !</strong></h1>
+                        </div>
+                        <div className="herobg">
+                            <form 
+                            className="flex flex-col justify-center p-10 w-[38rem] gap-5"
+                            action=""
+                            onSubmit={(e)=>e.preventDefault()}>
+                                <Input type={"text"} placeholder={""} text={"Name"} ></Input>
+                                <Input type={"text"} placeholder={""} text={"Email"} ></Input>
+                                <Input type={"text"} placeholder={""} text={"Message"} className="h-48" ></Input>
+                                <Button classname="place-self-center " text="Submit" icon={<fa.FaArrowRight/>}></Button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
 
 
