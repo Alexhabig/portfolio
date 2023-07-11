@@ -35,3 +35,12 @@ code {
 .style{
   fill: linear-gradient(137deg, #8E98A8 0%, rgba(217, 217, 217, 0.00) 100%);
 }
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in.active {
+  opacity: 1;
+}
