@@ -9,7 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 code {
@@ -23,6 +23,9 @@ code {
 }
 .linearbg{
   background: linear-gradient(122deg, #E8E8E8 1.62%, #C6C4BF 100%);
+}
+.aboutImgBg{
+  background: linear-gradient(180deg, #C8D6E5 0%, #8395A7 100%);
 }
 .layout{
   width: 58rem;

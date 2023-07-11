@@ -11,24 +11,22 @@ interface INavbarProps{
 
 const Navbar = (props:INavbarProps)=>{
     return(
-        <div className={`${props.classname} w-full fixed herobg`}>
+        <div className={`${props.classname} w-full fixed herobg z-10`}>
             <div className="gap-4 flex items-center justify-center py-5 text-red-600 text-lg">
 
-                
-                <a href="#" className="flex items-center gap-1"> <go.GoHomeFill/> HOME</a>
-
+                <a href="#home" className="flex items-center gap-1"> <go.GoHomeFill/> HOME</a>
 
                 <p className="text-xl">|</p>
 
-                <a href="#" className="flex items-center gap-1"> <bi.BiSolidUser/> ABOUT</a>
+                <a href="#about" className="flex items-center gap-1"> <bi.BiSolidUser/> ABOUT</a>
 
                 <p className="text-xl">|</p>
 
-                <a href="#" className="flex items-center gap-1"> <bs.BsClipboard2DataFill/> SKILLS</a>
+                <a href="#skill" className="flex items-center gap-1"> <bs.BsClipboard2DataFill/> SKILLS</a>
 
                 <p className="text-xl">|</p>
 
-                <a href="#" className="flex items-center gap-1"> <bi.BiSolidBriefcase/> PROJECT</a>
+                <a href="#project" className="flex items-center gap-1"> <bi.BiSolidBriefcase/> PROJECT</a>
 
 
             </div>

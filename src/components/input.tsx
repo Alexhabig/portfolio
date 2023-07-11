@@ -9,9 +9,9 @@ interface IInputProps{
 
 const Input =(props:IInputProps)=>{
     return(
-        <div className=" ">
+        <div className=" sm:text-xl text-base">
             <h1>{props.text}</h1>
-            <input type={props.type} className={`border border-black text-base bg-inherit peer rounded-sm py-2 px-1 w-full ${props.className}`} value={props.value} placeholder={props.placeholder} onChange={props.onChange}/>
+            <input type={props.type} className={` border border-black text-base bg-inherit peer rounded-sm py-2 px-1 w-full ${props.className}`} value={props.value} placeholder={props.placeholder} onChange={props.onChange}/>
         </div>
     );
 }

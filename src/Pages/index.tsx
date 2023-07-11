@@ -12,6 +12,8 @@ import Iconbtn from "../components/iconbtn";
 import About from "../components/about";
 import Input from "../components/input";
 import Button from "../components/button";
+import Footer from "../components/footer";
+import Hero from "../assets/svg/hero.svg";
 
 const Home = () =>{
 
@@ -107,21 +109,25 @@ const Home = () =>{
             title: "Illustrator",
             createdAt: new Date(),
         },
-
-        
-        
     ])
+    
+    const openInNewtab = (url:string)=>{
+        window.open(url, '_blank', 'noopener,noreferrer');
+    }
 
     return(
         <main>
             <Landing>
+
                 <Navbar/>
-               {/* hero section */}
-               {/* flex sm:flex-row justify-center items-center flex-col min-h-[100%] */}
-               <div className="flex justify-evenly items-center min-h-[100vh] herobg ">
-                    
-                    <div className="text-left flex flex-col gap-4 px-20 min-w-[50%] ">
-                        <div className="flex flex-col gap-y-2 text-3xl">
+                <div className="flex px-5 min-h-[100vh] items-center herobg sm:px-20" id="home"
+                style={{
+                    backgroundImage: `url(${Hero})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize:"cover",
+                }}>
+                    <div className="flex flex-col gap-5 min-w-[50%] ">
+                        <div className="text-2xl sm:text-3xl">
                             <h1>
                                 <strong>
                                 Hi, I’m
@@ -130,23 +136,32 @@ const Home = () =>{
                             </h1>
                             <h1>Web Designer</h1>
                         </div>
-                        <div>
+
+                        <div className="sm:text-xl text-base">
                             <p>Thanks for visiting!</p>
                             <p>Feel free to explore the site and learn more about me.</p>
                         </div>
-                        <div className="flex gap-4">
-                            <Iconbtn icon={<fa.FaFacebookF/>} classname="text-white bg-red-500 text-3xl p-3"></Iconbtn>
-                            <Iconbtn icon={<ri.RiInstagramFill/>} classname="text-white bg-red-500 text-3xl p-3"></Iconbtn>
-                            <Iconbtn icon={<fa.FaFacebookF/>} classname="text-white bg-red-500 text-3xl p-3"></Iconbtn>
+
+                        <div className="flex gap-4 text-white text-lg sm:text-3xl">
+                            <Iconbtn icon={<fa.FaFacebookF/>} classname=" bg-red-500 p-3 hover:bg-red-400" 
+                            onClick={()=> openInNewtab('https://www.facebook.com/alex.habig19')}
+                            ></Iconbtn>
+
+                            <Iconbtn icon={<ri.RiInstagramFill/>} classname=" bg-red-500 p-3 hover:bg-red-400"
+                            onClick={()=> openInNewtab('https://www.instagram.com/alx_hbg/')}
+                            ></Iconbtn>
+                            
+                            <Iconbtn icon={<fa.FaGithub/>} classname=" bg-red-500 p-3 hover:bg-red-400"
+                            onClick={()=> openInNewtab('https://github.com/Alexhabig')}
+                            ></Iconbtn>
                         </div>
-                        
+
                     </div>
 
-                    <div className="">
+                    <div className="sm:block hidden">
                         <img src={Images.prof} alt="Profile" />
                     </div>
 
-                    
                 </div>
 
                 {/* About Me */}
@@ -154,11 +169,11 @@ const Home = () =>{
    
                 {/* skills */}
                 
-                <div className=" px-20 ">
+                <div className="py-10 sm:px-20 px-5" id="skill">
                     <div className="flex justify-center flex-col gap-5 ">
                         <div className="flex flex-col justify-center gap-2">
                             <div className="text-center">
-                                <h1 className="text-gray-600 text-3xl">
+                                <h1 className="text-gray-600 text-2xl sm:text-3xl">
                                     <strong>MY SKILLS</strong>
                                 </h1>
                             </div>
@@ -166,85 +181,57 @@ const Home = () =>{
                             <div className="w-56 h-1 bg-line place-self-center"/>
                         </div>
                         
-                        <div className="grid grid-cols-5 gap-5 justify-center">
+                        <div className="grid grid-cols-2 gap-5 justify-center text-center items-center md:grid-cols-5">
                             {
                                 skills.map((skill:ISkills)=>(
-                                    <div className="bg-gray-400 p-4 items-center flex flex-col">  
-                                        <skill.icon className="text-gray-50 text-7xl"/>
-                                        <p>{skill.title}</p>
+                                    <div className="bg-gray-500 p-4 gap-3 items-center flex flex-col hover:bg-gray-400 hover:text-txtHover  text-gray-50">  
+                                        <skill.icon className="  text-4xl sm:text-7xl"/>
+                                        <p className="sm:text-xl text-sm" >{skill.title}</p>
                                     </div>
                                 ))
                             }
                         </div>
                     </div>
                 </div>
-                    {/* <h1 className="text-gray-600 text-3xl text-center"><strong>ABOUT ME</strong></h1>
-                    <div className="w-full ">
-                        <div className="grid grid-cols-5 gap-5 justify-center">
-                            {
-                                skills.map((skill:ISkills)=>(
-                                <div className="items-center flex flex-col justify-center py-4 gap-y-3 rounded-md bg-gray-800 hover:bg-gray-700">
-
-                                    <skill.icon className="text-green-400 text-7xl"/>
-                                    <p>{skill.title}</p>
-
-                                </div>
-                                ))
-                            }
-                        </div>
-                    </div> */}
-                
+                    
 
                 {/* Projects */}
-                <div className="p-20">
+                <div className="px-5 py-10 sm:px-20 transition-all duration-150 ease-in-out" id="project">
                     <div className="flex justify-center flex-col gap-5">
                         <div className="flex flex-col justify-center gap-2">
                             <div className="text-center">
-                            <h1 className="text-gray-600 text-3xl">
+                            <h1 className="text-gray-600 text-2xl sm:text-3xl">
                                 <strong>PROJECT'S</strong>
                             </h1>
                             </div>
                             <div className="w-48 h-1 bg-line place-self-center"/>
                             <div className="w-56 h-1 bg-line place-self-center"/>
                         </div>
-                        <div className="grid grid-cols-3 gap-5">
+                        {/* grid grid-cols-3 gap-5 sm:grid-flow-row */}
+                        <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
                             <img src={Images.project} alt="" sizes="200px" />
                             <img src={Images.project} alt="" />
                             <img src={Images.project} alt="" />
                         </div>
                     </div>
                 </div>
-                {/* <div className="border py-5">
-                    <h1 className="text-3xl text-center">Project's</h1>
-                    <div className="w-full px-20">
-                        <div className="flex justify-center p-3">
-                            <div className="p-4 bg-gray-700 rounded-lg gap-y-2 flex flex-col">
-                                <img src={Images.web} alt="" className="rounded-md" />
-                                <strong>Name of Project</strong>
-                                <p>dsc</p>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
-
-                {/*  */}
 
                 {/* get in touch */}
-                <div className="px-20">
-                    <div className="flex items-center gap-11 justify-center">
-                        <div>
-                            <div className="text-3xl flex items-center gap-3">
+                <div className="px-5 py-10 sm:px-20">
+                    <div className="flex items-center gap-11 justify-center sm:flex-row flex-col">
+                        <div className="flex flex-col gap-3 sm:gap-0">
+                            <div className="text-2xl sm:text-3xl flex items-center gap-3">
                                 <h1>
                                     <strong>Love to hear from you</strong>
                                 </h1>
-                                <md.MdWavingHand className="text-6xl "/>
+                                <md.MdWavingHand className="text-4xl sm:text-6xl"/>
                                 
                             </div>
-                            <h1 className="text-8xl"><strong>GET IN <br />TOUCH !</strong></h1>
+                            <h1 className="text-6xl sm:text-8xl"><strong>GET IN <br />TOUCH !</strong></h1>
                         </div>
-                        <div className="herobg">
+                        <div className="herobg w-[100%] sm:w-[45%]">
                             <form 
-                            className="flex flex-col justify-center p-10 w-[38rem] gap-5"
+                            className="flex flex-col justify-center p-5 sm:p-10 gap-5"
                             action=""
                             onSubmit={(e)=>e.preventDefault()}>
                                 <Input type={"text"} placeholder={""} text={"Name"} ></Input>
@@ -256,7 +243,8 @@ const Home = () =>{
                     </div>
                 </div>
 
-
+                {/* Footer */}
+                <Footer/>
 
             </Landing>
                    
