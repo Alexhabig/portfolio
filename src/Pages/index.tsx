@@ -174,7 +174,7 @@ const Home = () =>{
                         <div className="flex flex-col justify-center gap-2">
                             <div className="text-center">
                                 <h1 className="text-gray-600 text-2xl sm:text-3xl">
-                                    {/* <strong>MY SKILLS</strong> */}
+                                    <strong>MY SKILLS</strong>
                                 </h1>
                             </div>
                             <div className="w-48 h-1 bg-line place-self-center"/>
