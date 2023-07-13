@@ -2,18 +2,18 @@ import Navbar from "../components/navbar"
 import Landing from "../layout/landing"
 import * as si from "react-icons/si";
 import * as fa from "react-icons/fa";
-import * as ri from "react-icons/ri";
 import * as md from "react-icons/md";
 import { ISkills } from "../types";
 import { useState } from "react";
 import Images from "../assets"
 import '../index.css'
-import Iconbtn from "../components/iconbtn";
 import About from "../components/about";
 import Input from "../components/input";
 import Button from "../components/button";
 import Footer from "../components/footer";
-import Hero from "../assets/svg/hero.svg";
+import Heropage from "../components/hero";
+import { motion } from "framer-motion";
+import { fadeIn } from "../varient";
 
 const Home = () =>{
 
@@ -111,58 +111,15 @@ const Home = () =>{
         },
     ])
     
-    const openInNewtab = (url:string)=>{
-        window.open(url, '_blank', 'noopener,noreferrer');
-    }
 
     return(
         <main>
             <Landing>
 
                 <Navbar/>
-                <div className="flex px-5 min-h-[100vh] items-center herobg sm:px-20" id="home"
-                style={{
-                    backgroundImage: `url(${Hero})`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize:"cover",
-                }}>
-                    <div className="flex flex-col gap-5 min-w-[50%] ">
-                        <div className="text-2xl sm:text-3xl">
-                            <h1>
-                                <strong>
-                                Hi, I’m
-                                <span className="text-red-400"> Alexander Habig</span>
-                                </strong>
-                            </h1>
-                            <h1>Web Designer</h1>
-                        </div>
 
-                        <div className="sm:text-xl text-base">
-                            <p>Thanks for visiting!</p>
-                            <p>Feel free to explore the site and learn more about me.</p>
-                        </div>
-
-                        <div className="flex gap-4 text-white text-lg sm:text-3xl">
-                            <Iconbtn icon={<fa.FaFacebookF/>} classname=" bg-red-500 p-3 hover:bg-red-400" 
-                            onClick={()=> openInNewtab('https://www.facebook.com/alex.habig19')}
-                            ></Iconbtn>
-
-                            <Iconbtn icon={<ri.RiInstagramFill/>} classname=" bg-red-500 p-3 hover:bg-red-400"
-                            onClick={()=> openInNewtab('https://www.instagram.com/alx_hbg/')}
-                            ></Iconbtn>
-                            
-                            <Iconbtn icon={<fa.FaGithub/>} classname=" bg-red-500 p-3 hover:bg-red-400"
-                            onClick={()=> openInNewtab('https://github.com/Alexhabig')}
-                            ></Iconbtn>
-                        </div>
-
-                    </div>
-
-                    <div className="sm:block hidden">
-                        <img src={Images.prof} alt="Profile" />
-                    </div>
-
-                </div>
+                {/* Hero */}
+                <Heropage/>
 
                 {/* About Me */}
                 <About/>
@@ -181,13 +138,18 @@ const Home = () =>{
                             <div className="w-56 h-1 bg-line place-self-center"/>
                         </div>
                         
-                        <div className="grid grid-cols-2 gap-5 justify-center text-center items-center md:grid-cols-5">
+                        <div className="grid grid-cols-2 gap-5 transition-all duration-1000 justify-center text-center items-center md:grid-cols-5">
                             {
                                 skills.map((skill:ISkills)=>(
-                                    <div className="bg-gray-500 p-4 gap-3 items-center flex flex-col hover:bg-gray-400 hover:text-txtHover  text-gray-50">  
+                                    <motion.div
+                                    variants={fadeIn('up',0.3)}
+                                    initial='hidden'
+                                    whileInView={'show'}
+                                    viewport={{once:false, amount:0.7}}
+                                    className="bg-gray-500 p-4 gap-3 items-center flex flex-col hover:bg-gray-400 hover:text-txtHover transition-all duration-300  text-gray-50">  
                                         <skill.icon className="  text-4xl sm:text-7xl"/>
                                         <p className="sm:text-xl text-sm" >{skill.title}</p>
-                                    </div>
+                                    </motion.div>
                                 ))
                             }
                         </div>
@@ -207,12 +169,39 @@ const Home = () =>{
                             <div className="w-48 h-1 bg-line place-self-center"/>
                             <div className="w-56 h-1 bg-line place-self-center"/>
                         </div>
-                        {/* grid grid-cols-3 gap-5 sm:grid-flow-row */}
-                        <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-                            <img src={Images.project} alt="" sizes="200px" />
-                            <img src={Images.project} alt="" />
-                            <img src={Images.project} alt="" />
+                        
+                        {/* image */}
+                        <div className="group relative overflow-hidden">
+                            {/* overlay */}
+                            <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
+                            {/* img */}
+                            <img src={Images.project} alt=""/>
+                            {/* title */}
+                            <div>
+                                SAmple project
+                            </div>
+                            {/* desc */}
+                            <div>
+                                <span>Porject title</span>
+                            </div>
                         </div>
+
+                        {/* grid grid-cols-3 gap-5 sm:grid-flow-row */}
+                        {/* <motion.div 
+                        variants={fadeIn('up',0.3)}
+                        initial='hidden'
+                        whileInView={'show'}
+                        viewport={{once:false, amount:0.7}}
+                        className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+                            <div className="flex flex-col border">
+                                <img src={Images.project} alt="" sizes="100px"/>
+                                <div className="absolute -b">
+                                    <span>Porject Title</span>
+                                </div>
+                            </div>
+                            <img src={Images.project} alt="" />
+                            <img src={Images.project} alt="" />
+                        </motion.div> */}
                     </div>
                 </div>
 
