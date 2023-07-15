@@ -31,7 +31,7 @@ const Heropage = () =>{
                         <span className="text-red-400"> Alexander Habig</span>
                         </strong>
                     </h1>
-                    <h1>Web Designer</h1>
+                    <h1 className='sm:text-2xl text-xl'>Web Designer / Developer</h1>
                 </div>
 
                 <div className="sm:text-xl text-base">

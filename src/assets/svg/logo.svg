@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" width="40" height="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82.99 88.38">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ff0001;
+      }
+
+      .cls-1, .cls-2 {
+        font-family: SnapITC-Regular, 'Snap ITC';
+        font-size: 62.32px;
+      }
+    </style>
+  </defs>
+  <text class="cls-1" transform="translate(2.8 53.57)"><tspan x="0" y="0">A</tspan></text>
+  <text class="cls-2" transform="translate(35.37 71.47) rotate(-12.6)"><tspan x="0" y="0">L</tspan></text>
+</svg>
