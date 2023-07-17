@@ -1,7 +1,6 @@
 import { motion } from "framer-motion"
 import Images from "../assets"
 import { fadeIn } from "../varient"
-import { url } from "inspector"
 
 const Project = () =>{
 

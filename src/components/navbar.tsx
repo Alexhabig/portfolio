@@ -31,7 +31,7 @@ const Navbar = (props:INavbarProps)=>{
 
     return(
         <nav className={`${props.classname} w-full fixed herobg z-50 `}>
-            <div className="gap-4 flex flex-col sm:flex-row items-center justify-center sm:justify-between py-2 px-5 sm:py-5 sm:px-20 text-red-400 text-base font-semibold">
+            <div className="gap-4 flex flex-col sm:flex-row items-center justify-between py-2 px-5 sm:py-5 sm:px-20 text-red-400 text-base font-semibold">
                 <div className="flex items-center justify-center sm:relative absolute top-2 left-5">
                     <img src={logo} alt="Logo" className="cursor-pointer" onClick={()=>goTop()}/>
                 </div>
