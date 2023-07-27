@@ -17,7 +17,7 @@ const Landing = ({children}: IHomeProps)=>{
     },[]);
 
     return(
-        <main className="linearbg min-h-[100vh] text-gray-500 flex justify-center flex-auto">
+        <main className=" min-h-[100vh] text-gray-500 flex justify-center flex-auto">
             
             {
                 loading?
