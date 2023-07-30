@@ -9,7 +9,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 1.25rem;
 }
 
 code {
@@ -44,9 +43,9 @@ code {
 .fade-in.active {
   opacity: 1;
 }
-.active {
-  color: rgb(220 38 38 / var(--tw-text-opacity));
-}
+/* .active {
+  color: rgb(126 34 206 / var(--tw-text-opacity));
+} */
 
 /* Loader style */
 .load {
