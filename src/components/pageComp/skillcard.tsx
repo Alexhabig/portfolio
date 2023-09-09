@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../varient";
 interface Props {
   icon?: any;
   language?: string;
@@ -10,7 +12,13 @@ interface Props {
 const Skillcard = (props: Props) => {
   return (
     <>
-      <div className="flex flex-col gap-2">
+      <motion.div
+        variants={fadeIn("up", 0.3)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.7 }}
+        className="flex flex-col gap-2"
+      >
         <div className="flex justify-between items-center text-lg px-3">
           <div className="flex gap-3 items-center">
             <i className={`${props.iconColor} text-3xl`}>
@@ -26,7 +34,7 @@ const Skillcard = (props: Props) => {
             className={`w-[${props.skillbar}] bg-purple-600 h-[.4rem] rounded-full`}
           />
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

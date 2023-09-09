@@ -7,6 +7,8 @@ import * as bi from "react-icons//bi";
 import * as si from "react-icons//si";
 import { skills } from "../../types/skillData";
 import SkillItem from "./skillItem";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../varient";
 
 const AboutMe = () => {
   return (
@@ -15,7 +17,13 @@ const AboutMe = () => {
       className="laptop:px-36 phone:px-5 flex flex-col justify-center py-20 gap-20 bg-gray-100"
       id="about"
     >
-      <div className="flex justify-center gap-10 items-center boder border-b-4 phone:rounded-3xl tablet:rounded-full border-purple-600 phone:pb-10 laptop:pb-20">
+      <motion.div
+        variants={fadeIn("up", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: true, amount: 0.7 }}
+        className="flex justify-center gap-10 items-center boder border-b-4 phone:rounded-3xl tablet:rounded-full border-purple-600 phone:pb-10 laptop:pb-20"
+      >
         <div className="w-[20%] laptop:block phone:hidden">
           <img src={Images.ab} alt="" className="rounded-md" />
         </div>
@@ -42,11 +50,17 @@ const AboutMe = () => {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
 
       <div className="flex justify-center gap-10 phone:flex-col tablet:flex-row">
         {/* Education */}
-        <div className="flex flex-col gap-5">
+        <motion.div
+          variants={fadeIn("up", 0.3)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: true, amount: 0.7 }}
+          className="flex flex-col gap-5"
+        >
           <h1 className="text-2xl font-medium flex items-center gap-3 ">
             <fa.FaGraduationCap className="text-3xl" />
             Education
@@ -74,10 +88,16 @@ const AboutMe = () => {
               </div>
             </li>
           </ol>
-        </div>
+        </motion.div>
 
         {/* experience */}
-        <div className="flex flex-col gap-5">
+        <motion.div
+          variants={fadeIn("up", 0.3)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: true, amount: 0.7 }}
+          className="flex flex-col gap-5"
+        >
           <h1 className="text-2xl font-medium flex items-center gap-3">
             <fa.FaBriefcase className="text-3xl" />
             Experience
@@ -102,7 +122,7 @@ const AboutMe = () => {
               </div>
             </li>
           </ol>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

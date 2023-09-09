@@ -1,13 +1,21 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../varient";
 interface Props {
   icon?: any;
   iconColor?: string;
 }
 const SkillItem = (props: Props) => {
   return (
-    <div className={`${props.iconColor}`}>
+    <motion.div
+      variants={fadeIn("up", 0.7)}
+      initial="hidden"
+      whileInView={"show"}
+      viewport={{ once: true, amount: 0.7 }}
+      className={`${props.iconColor}`}
+    >
       <props.icon />
-    </div>
+    </motion.div>
   );
 };
 

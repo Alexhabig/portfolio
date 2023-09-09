@@ -6,6 +6,7 @@ import capstone from "./capstone.png";
 import todo from "./todo.png";
 import sav from "./sav.png";
 import group from "./Group 14.png";
+import billTracker from "./billTracker.png";
 
 const Images = {
   me,
@@ -16,6 +17,7 @@ const Images = {
   todo,
   sav,
   group,
+  billTracker,
 };
 
 export default Images;

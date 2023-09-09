@@ -5,6 +5,8 @@ import Input from "../input";
 import TextArea from "../textArea";
 import Button from "../button";
 import emailjs from "@emailjs/browser";
+import { fadeIn } from "../../varient";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const form = useRef<HTMLFormElement | null>(null);
@@ -13,6 +15,13 @@ const Contact = () => {
   const Public_Key = process.env.REACT_APP_PUBLIC_KEY;
   const [messageSuccess, setMessageSuccess] = useState(false);
   const require = true;
+
+  const resetForm = () => {
+    if (form.current) {
+      form.current.reset(); // Reset the form elements
+    }
+  };
+
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -21,7 +30,10 @@ const Contact = () => {
         (result) => {
           console.log(result.text);
           setMessageSuccess(true);
-          setTimeout(() => setMessageSuccess(false), 1500);
+          resetForm();
+          setTimeout(() => {
+            setMessageSuccess(false);
+          }, 1500);
         },
         (error) => {
           console.log(error.text);
@@ -36,11 +48,24 @@ const Contact = () => {
       id="contact"
     >
       <div className="flex justify-center flex-col gap-5 items-center w-full ">
-        <h1 className="text-2xl font-medium text-center border-b-4 rounded-full px-5 border-purple-200">
+        <motion.h1
+          variants={fadeIn("up", 0.3)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.7 }}
+          className="text-2xl font-medium text-center border-b-4 rounded-full px-5 border-purple-200"
+        >
           Contact Me
-        </h1>
+        </motion.h1>
+
         <div className="flex tablet:flex-row phone:flex-col  justify-center gap-10 w-full">
-          <div className="flex flex-col gap-4 p-5">
+          <motion.div
+            variants={fadeIn("up", 0.3)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.7 }}
+            className="flex flex-col gap-4 p-5"
+          >
             <h1 className="text-xl flex items-center gap-3">
               Love to hear from you{" "}
               <md.MdWavingHand className="text-purple-300 text-3xl" />
@@ -64,8 +89,15 @@ const Contact = () => {
                 <p>habigalexander91@gmail.com</p>
               </div>
             </div>
-          </div>
-          <div className="laptop:p-5 laptop:w-[50%] tablet:w-full">
+          </motion.div>
+
+          <motion.div
+            variants={fadeIn("up", 0.3)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.7 }}
+            className="laptop:p-5 laptop:w-[50%] tablet:w-full"
+          >
             <form
               onSubmit={sendEmail}
               ref={form}
@@ -88,9 +120,15 @@ const Contact = () => {
               <Input type={"text"} text={"Subject"} name="user_subject" />
               <TextArea text="Message" name="message" />
               {messageSuccess && (
-                <div className=" bg-green-300 w-full flex items-center justify-center top-50  py-3 rounded-md relative ">
+                <motion.div
+                  variants={fadeIn("up", 0.1)}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.7 }}
+                  className=" bg-green-300 w-full flex items-center justify-center top-50  py-3 rounded-md relative "
+                >
                   Message Sent Successful!
-                </div>
+                </motion.div>
               )}
               <Button
                 disable={messageSuccess}
@@ -103,7 +141,7 @@ const Contact = () => {
                 }`}
               />
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

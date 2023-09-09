@@ -3,6 +3,8 @@ import * as fa from "react-icons/fa";
 import * as bs from "react-icons/bs";
 import Skillcard from "./skillcard";
 import { skills } from "../../types/skillData";
+import { fadeIn } from "../../varient";
+import { motion } from "framer-motion";
 const Skillset = () => {
   const FEskills = skills.filter((skill) => skill.category === "FE");
 
@@ -23,7 +25,13 @@ const Skillset = () => {
         <div className="flex flex-col px-5 gap-10">
           {/* Front End */}
           <div className="flex flex-col gap-5  p-10 rounded bg-purple-50 shadow-md shadow-purple-300">
-            <div className="flex items-center text-xl font-medium gap-2 text-purple-600  ">
+            <motion.div
+              variants={fadeIn("up", 0.3)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.7 }}
+              className="flex items-center text-xl font-medium gap-2 text-purple-600  "
+            >
               <i>
                 <svg
                   stroke="currentColor"
@@ -37,7 +45,7 @@ const Skillset = () => {
                 </svg>
               </i>
               <h1>Front End </h1>
-            </div>
+            </motion.div>
             <div className="flex flex-wrap justify-center gap-10">
               {FEskills.map((skill) => (
                 <div className="phone:w-[100%] laptop:w-[20%] tablet:w-[30%]">
@@ -56,12 +64,18 @@ const Skillset = () => {
 
           {/* Back End */}
           <div className="flex flex-col gap-5  p-10 rounded bg-purple-50 shadow-md shadow-purple-300">
-            <div className="flex items-center text-xl font-medium gap-2 text-purple-600  ">
+            <motion.div
+              variants={fadeIn("up", 0.3)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.7 }}
+              className="flex items-center text-xl font-medium gap-2 text-purple-600  "
+            >
               <i>
                 <bs.BsDatabaseGear />
               </i>
               <h1>Back End </h1>
-            </div>
+            </motion.div>
             <div className="flex flex-wrap justify-center gap-10">
               {BEskills.map((skill) => (
                 <div className="phone:w-[100%] laptop:w-[20%] tablet:w-[30%]">
@@ -80,12 +94,18 @@ const Skillset = () => {
 
           {/* Web Design */}
           <div className="flex flex-col gap-5  p-10 rounded bg-purple-50 shadow-md shadow-purple-300">
-            <div className="flex items-center text-xl font-medium gap-2 text-purple-600  ">
+            <motion.div
+              variants={fadeIn("up", 0.3)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.7 }}
+              className="flex items-center text-xl font-medium gap-2 text-purple-600  "
+            >
               <i>
                 <fa.FaDesktop />
               </i>
               <h1>Web Design </h1>
-            </div>
+            </motion.div>
             <div className="flex flex-wrap justify-center gap-10">
               {WebDesignSkills.map((skill) => (
                 <div className="phone:w-[100%] laptop:w-[20%] tablet:w-[30%]">
